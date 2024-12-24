@@ -1,6 +1,6 @@
 package com.uexcel.OAUTH2.config;
 
-import com.uexcel.OAUTH2.CsrefTokenFilter;
+import com.uexcel.OAUTH2.CsrfTokenFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,7 +21,7 @@ public class securityConfig {
         http.authorizeRequests(c->c.requestMatchers("/error","/login/**","/logout").permitAll());
         http.authorizeRequests(c->c.requestMatchers("dashboard").authenticated()
                 .anyRequest().permitAll());
-        http.addFilterAfter(new CsrefTokenFilter(), BasicAuthenticationFilter.class);
+        http.addFilterAfter(new CsrfTokenFilter(), BasicAuthenticationFilter.class);
         http.oauth2Login(c->c.loginPage("/login").defaultSuccessUrl("/dashboard")
                 .failureUrl("/login?error=true"));
         http.formLogin(c->c.loginPage("/login").defaultSuccessUrl("/dashboard")

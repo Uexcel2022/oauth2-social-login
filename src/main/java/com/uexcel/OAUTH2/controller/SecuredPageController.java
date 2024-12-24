@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class SecuredPageController {
     @GetMapping("/dashboard")
-    public String SecuredPageController() {
+    public String securedPageController() {
         return "securedPage";
     }
 
