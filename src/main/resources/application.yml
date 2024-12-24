@@ -1,0 +1,26 @@
+spring:
+    application:
+      name: OAUTH2
+
+
+    security:
+      user:
+        name: ${SECURITY_USERNAME:user@gmail.com}
+        password: ${SECURITY_PASSWORD:12345}
+
+      oauth2:
+        client:
+          registration:
+            github:
+              client-secret: ${CLIENT_SECRET :4c2fd4499c6f4c091f973f81****}
+              client-name: ${CLIENT_NAME:GitHub}
+              client-id: ${CLIENT_ID:Iv1.d10da5bea*****}
+            facebook:
+              client-secret: ${CLIENT_SECRET :15a16e9519a042b2f***}
+              client-name: ${CLIENT_NAME:facebook}
+              client-id: ${CLIENT_ID:5132590084****}
+
+logging:
+  pattern:
+   console: ${LOGPATTERN_CONSOLE:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n}
+
